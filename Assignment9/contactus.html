@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vecta Corp.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/blitzer/jquery-ui.css">
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="js/jquery.mobilemenu.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(document).tooltip();
+            $('#responsive-menu').mobileMenu();
+            $("#infrastructure").buttonset();
+            $("#solutions").buttonset();
+            $("#dropdown").selectmenu();
+
+            $("form").submit(function(event) {
+                if ($("#name").val() === "") {
+                    $("#dialog-message").dialog({
+                        modal: true});
+                    return false;
+                }
+                if ($("#companyname").val() === "") {
+                    $("#dialog-message").dialog({
+                        modal: true});
+                    return false;
+                }
+                if ($("#phonenumber").val() === "") {
+                    $("#dialog-message").dialog({
+                        modal: true});
+                    return false;
+                }
+                if ($("#email").val() === "") {
+                    $("#dialog-message").dialog({
+                        modal: true});
+                    return false;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <main class="container">
+        <figure class="three columns">
+            <img src="images/logo.gif" class="scale-with-grid" alt="">
+        </figure>
+
+        <nav class="thirteen columns">
+            <ul id="responsive-menu">
+                <li><a href="index.html" title="Home Page">Home</a></li>
+                <li><a href="aboutus.html" title="Learn more about our company">About Us</a></li>
+                <li><a href="solutions.html" title="View our products">Solutions</a></li>
+                <li><a href="support.html" title="Need help?">Support</a></li>
+                <li><a href="contactus.html" title="Make our Hotline Bling!">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <header class="sixteen columns">
+            <img src="images/header.gif" class="scale-with-grid" alt="">
+        </header>
+
+        <section id="welcome" class="eleven columns">
+            <h4>Contact Us</h4>
+            <form name="contactform" action="http://www.vectacorp.com/vc/scripts/contactus.asp" method="post">
+                <fieldset>
+                <legend>Contact a Sales Representative</legend>
+
+                <div id="dialog-message" title="Missing Field Data">
+                    <p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+                        Text fields are required.
+                    </p>
+                    <p>You cannot submit form unless completed.</p>
+                </div>
+
+               <!-- note: "required" in input will not allow jQuery submit button to work. therefore removed. -->
+                Name:
+                <input type="text" id="name" name="name" maxlength="30">
+                Company Name:
+                    <input type="text" id="companyname" name="companyname" maxlength="30">
+                Phone:
+                    <input type="tel" id="phonenumber" name="phonenumber" maxlength="25">
+                Email:
+                    <input type="email" id="email" name="email" maxlength="30">
+
+
+                What VectaCorp products are you interested in?<br>
+                <div id="solutions">
+                    <input type="checkbox" name="product" value="vProspect" id="vProspect"><label for="vProspect">vProspect 2.0</label>
+                    <input type="checkbox" name="product" value="vConvert" id="vConvert"><label for="vConvert">vConvert 2.0</label>
+                    <input type="checkbox" name="product" value="vRetain" id="vRetain"><label for="vRetain">vRetain 1.0</label>
+                </div>
+
+                <br>
+                What is your current infrastructure?<br>
+                <div id="infrastructure">
+                    <input type="radio" name="infrastructure" value="Mac" id="Mac"><label for="Mac">Mac</label>
+                    <input type="radio" name="infrastructure" value="Linux" id="Linux"><label for="Linux">Linux</label>
+                    <input type="radio" name="infrastructure" value="Unix" id="Unix"><label for="Unix">Unix</label>
+                    <input type="radio" name="infrastructure" value="Windows" id="Windows"><label for="Windows">Windows</label>
+                </div>
+
+                <br>
+                How many employees do you have?<br>
+                <select name="companysize" id="dropdown">
+                    <option value="1-10">1-10</option>
+                    <option value="11-100">11-100</option>
+                    <option value="101-1000">101-1000</option>
+                    <option value="More than 1000">More than 1000</option>
+                </select><br><br>
+
+                How did you hear about us?
+                <select name="hearaboutus" multiple="" size="5">
+                    <option value="Magazine Ad">Magazine Ad</option>
+                    <option value="Radio Ad">Radio Ad</option>
+                    <option value="TV Ad">TV Ad</option>
+                    <option value="Word of Mouth">Word of Mouth</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                Questions or comments for our sales representatives?
+                <textarea name="questions" size="30" rows="5"></textarea>
+                <input type="submit" name="submit" value="Submit Now">
+
+
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="testimonials" class="five columns">
+            <h4>Map</h4>
+            <p>&nbsp;</p>
+        </section>
+
+    </main>
+</body>
+</html>
